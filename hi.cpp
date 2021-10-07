@@ -1,3 +1,4 @@
+//Raed K 
 #include <iostream>
 #include <cstring>
 using namespace std; 
@@ -96,35 +97,27 @@ int main() {
             displayBoard(board);
             checkWin(board);
         }
-        else {
+        else 
             cout << "That spot is taken" << endl;
-        }
         break; 
-        
          case 2 :
         if (board[1][0] == '2') {
             counter++;
             board[1][0] = move;
             displayBoard(board);
             checkWin(board);
-
-        }
-        else {
+        else 
             cout << "That spot is taken" << endl; 
-        }
         break;
-
          case 3 :
         if (board[2][0] == '3') {
             counter++;
             board[2][0] = move;
             displayBoard(board);
             checkWin(board);
-            
         }
-        else {
+        else 
             cout << "That spot is taken" << endl; 
-        }
         break;
 
          case 4 :
@@ -135,9 +128,8 @@ int main() {
             checkWin(board);
 
         }
-        else {
-            cout << "That spot is taken" << endl; 
-        }
+        else 
+            cout << "That spot is taken" << endl;
         break;
 
          case 5 :
@@ -148,9 +140,8 @@ int main() {
             checkWin(board);
 
         }
-        else {
-            cout << "That spot is taken" << endl; 
-        }
+        else 
+            cout << "That spot is taken" << endl;
         break;
 
          case 6 :
@@ -160,11 +151,9 @@ int main() {
             displayBoard(board);
             checkWin(board);
         }
-        else {
-            cout << "That spot is taken" << endl; 
-        }
+        else
+            cout << "That spot is taken" << endl;
         break;
-
          case 7 :
         if (board[0][2] == '7') {
             counter++;
@@ -172,21 +161,18 @@ int main() {
             displayBoard(board);
             checkWin(board);
         }
-        else {
-            cout << "That spot is taken" << endl; 
-        }
+        else 
+           cout << "That spot is taken" << endl;
         break;
-
          case 8 :
         if (board[1][2] == '8') {
         counter++;
         board[1][2] = move;
         displayBoard(board);
         checkWin(board);
-        }
         else {
             cout << "That spot is taken" << endl; 
-        }
+       
         break;
 
          case 9 :
@@ -196,9 +182,8 @@ int main() {
         displayBoard(board);
         checkWin(board);
         }
-        else {
+        else 
             cout << "That spot is taken" << endl; 
-        }
         break;
         }
 
