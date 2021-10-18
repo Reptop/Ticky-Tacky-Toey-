@@ -68,7 +68,9 @@ void print(char square[3][3]) {
 int main() {  
     // var declarations 
     bool stillplay = true;
-    int counter = 0; 
+    int counter = 0;
+    int xwin; 
+    int owin;  
     char move; 
     char input[3]; 
     char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; 
