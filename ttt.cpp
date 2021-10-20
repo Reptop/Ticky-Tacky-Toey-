@@ -1,30 +1,39 @@
-//Raed K 
+//Raed K
+//10/20/21
+//This code is for playing tic tac toe in console 
+
 #include <iostream>
 #include <cstring>
 using namespace std; 
 
+//ID's for X and O 
 #define X_MOVE 1
 #define O_MOVE 2
 
+//function declarations 
 int checkWin(char board[3][3], int i); 
 void print(char board[3][3]); 
 void clear(char board[3][3]); 
+int checkTie(char square[3][3]); 
+int main() { 
 
-int main() {  
 // var declarations 
 bool stillplay = true;
-bool owin = false; 
-bool xwin = false; 
 int counter = 1; 
+//counters
 int x = 0; 
 int o = 0;  
-int t = 0; 
+int t = 0;
+
+//input var
 char str[3]; 
-char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; 
+char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; //set initial board as blank 
+
+//constant for switching turns 
 const int X_TURN = 0;
 const int O_TURN = 1;
 int turn = X_TURN; //set first player to turn 
-bool clean; 
+bool clean; // checking for clean input 
 
 print(board);       
 while(stillplay) {
@@ -53,7 +62,7 @@ while(stillplay) {
 	    else if ((turn == X_TURN) && (board[row][column] != ' ')){
 	      cout << "There is already a piece there." << endl;
 	    }
-	    //successful O move!
+	    //clean O move
 	    if ((turn == O_TURN) && (board[row][column] == ' ')){
 	      board[row][column] = O_MOVE;
          print(board); 
@@ -73,7 +82,7 @@ while(stillplay) {
 	      cout << "O turn" << endl;
 	      turn = O_TURN;
           }
-
+	//check wins for x 
       if (checkWin(board, 1)) {
             cout << "X won!" << endl;
             x++;
@@ -93,6 +102,7 @@ while(stillplay) {
                 stillplay = false; 
 
            }
+      //check wins for O 
       else if (checkWin(board, 2)) {
             cout << "O won!" << endl; 
             o++; 
@@ -104,14 +114,15 @@ while(stillplay) {
             cout << "Enter y for yes or n for no: "; 
             cin >> yesno; 
             if (yesno == 'y') {
-                clear(board); 
+                clear(board); //clearboard, print it out again, set first turn to X 
                 print(board);  
                 turn = X_TURN; 
             }  
             else if(yesno == 'n') 
-                stillplay = false; 
+                stillplay = false; //break loop 
           }
-           else {
+      		//checkties
+           else if(checkTie(board) == 0){
             cout << "It's a Tie!" << endl; 
             t++; 
             cout << "X Wins: " << x << endl; 
@@ -130,7 +141,7 @@ while(stillplay) {
                 stillplay = false; 
           }
         }
-	    }
+      }
     }
   }
 }
@@ -162,7 +173,7 @@ void print(char board[3][3]){
     cout << output[0] << " " << output[1] << " " << output[2] << " " << output[3] << endl;
   }
 }
-
+//win combos 
 int checkWin(char board[3][3], int i){
     if(board[0][0] == i && board[0][1] == i && board[0][2] == i){ //top row across
       return 1;
@@ -188,9 +199,17 @@ int checkWin(char board[3][3], int i){
     else if(board[0][1] == i && board[1][1] == i && board[2][1] == i){ //middle row down
       return 1;
     }
- return 0; //nobody won
+    else 
+	return 0; 
 }
 
+int checkTie(char square[3][3]) {
+	 if (square[0][0] != ' ' && square[1][0] != ' ' && square[2][0] != ' ' 
+                    && square[0][1] != ' ' && square[1][1] != ' ' && square[2][1] != ' ' 
+                  && square[0][2] != ' ' && square[1][2] != ' ' && square[2][2] != ' ')
+        return 0;
+}
+//set everything to blank 
 void clear(char board[3][3]) {
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
