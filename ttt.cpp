@@ -208,6 +208,8 @@ int checkTie(char square[3][3]) {
                     && square[0][1] != ' ' && square[1][1] != ' ' && square[2][1] != ' ' 
                   && square[0][2] != ' ' && square[1][2] != ' ' && square[2][2] != ' ')
         return 0;
+    else 
+      return -1; 
 }
 //set everything to blank 
 void clear(char board[3][3]) {
